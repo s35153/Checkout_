@@ -23,10 +23,6 @@ class CheckoutViewModel {
         return checkoutModel?.items ?? []
     }
     
-    var orderId: String? {
-        return checkoutModel?.id
-    }
-    
     init(checkoutService: CheckoutServiceProtocol = CheckoutService()) {
         self.checkoutService = checkoutService
     }
@@ -46,7 +42,7 @@ class CheckoutViewModel {
     }
     
     func submitOrder() {
-        guard let orderId = orderId else {
+        guard let orderId = checkoutModel?.id else {
             print("No order ID available for submission")
             return
         }

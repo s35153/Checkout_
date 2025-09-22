@@ -12,8 +12,6 @@ class ViewController: UIViewController {
     private var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.separatorStyle = .singleLine
-        tableView.backgroundColor = .systemBackground
         return tableView
     }()
     
@@ -44,9 +42,6 @@ class ViewController: UIViewController {
 
     // MARK: - UI Setup
     private func configureUI() {
-        view.backgroundColor = .systemBackground
-        title = "Checkout"
-        
         setupSubviews()
         setupConstraints()
     }
@@ -82,9 +77,7 @@ class ViewController: UIViewController {
     
     private func showOrderStatus(response: SubmissionResponse) {
         let statusViewController = OrderStatusViewController(submissionResponse: response)
-        statusViewController.modalPresentationStyle = .fullScreen
-        present(statusViewController, animated: true)
-//        navigationController?.pushViewController(statusViewController, animated: true)
+        navigationController?.pushViewController(statusViewController, animated: true)
     }
 }
 
