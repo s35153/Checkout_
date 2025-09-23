@@ -21,6 +21,7 @@
 		35980A382B45D9350060C308 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 35980A372B45D9350060C308 /* README.md */; };
 		35980A3A2B45D9460060C308 /* checkout_recording.mov in Resources */ = {isa = PBXBuildFile; fileRef = 35980A392B45D9460060C308 /* checkout_recording.mov */; };
 		35980A3E2B45E53A0060C308 /* Checkout.png in Resources */ = {isa = PBXBuildFile; fileRef = 35980A3D2B45E53A0060C308 /* Checkout.png */; };
+		5C0029622E81AABD0004D3AA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0029612E81AABA0004D3AA /* Constants.swift */; };
 		5C13892F2E7F1294006861BE /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C13892E2E7F128C006861BE /* TableViewCell.swift */; };
 		5C1389372E7F1806006861BE /* CheckoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1389362E7F1800006861BE /* CheckoutModel.swift */; };
 		5C13893B2E7F1840006861BE /* OrderStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C13893A2E7F1835006861BE /* OrderStatusViewController.swift */; };
@@ -55,6 +56,7 @@
 		35980A372B45D9350060C308 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		35980A392B45D9460060C308 /* checkout_recording.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = checkout_recording.mov; sourceTree = "<group>"; };
 		35980A3D2B45E53A0060C308 /* Checkout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Checkout.png; sourceTree = "<group>"; };
+		5C0029612E81AABA0004D3AA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5C13892E2E7F128C006861BE /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		5C1389362E7F1800006861BE /* CheckoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutModel.swift; sourceTree = "<group>"; };
 		5C13893A2E7F1835006861BE /* OrderStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatusViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		2608B9B42B179B2100EE95F9 /* CheckoutInterview */ = {
 			isa = PBXGroup;
 			children = (
+				5C0029602E81AAB30004D3AA /* Utility */,
 				35980A362B45D9070060C308 /* Instructions */,
 				2608B9DF2B179B8E00EE95F9 /* Resources */,
 				5C1389312E7F177E006861BE /* ViewModel */,
@@ -182,6 +185,14 @@
 				35980A392B45D9460060C308 /* checkout_recording.mov */,
 			);
 			path = Instructions;
+			sourceTree = "<group>";
+		};
+		5C0029602E81AAB30004D3AA /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				5C0029612E81AABA0004D3AA /* Constants.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		5C1389352E7F17F7006861BE /* Model */ = {
@@ -306,6 +317,7 @@
 				5C13892F2E7F1294006861BE /* TableViewCell.swift in Sources */,
 				2608B9B82B179B2100EE95F9 /* ContentView.swift in Sources */,
 				2608B9EB2B179DFA00EE95F9 /* CheckoutView.swift in Sources */,
+				5C0029622E81AABD0004D3AA /* Constants.swift in Sources */,
 				5C1389372E7F1806006861BE /* CheckoutModel.swift in Sources */,
 				9399D2EE2BB6316500128DB1 /* CheckoutServiceCombine.swift in Sources */,
 				3500B1B12B20ECD400E728A1 /* AppDelegate.swift in Sources */,

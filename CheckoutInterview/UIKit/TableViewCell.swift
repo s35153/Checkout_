@@ -8,6 +8,8 @@
 import UIKit
 
 class CheckoutItemTableViewCell: UITableViewCell {
+    
+    static let identifier = Constants.CellIdentifiers.checkoutItemTableViewCell
 
     let itemNameLabel: UILabel = {
         let label = UILabel()

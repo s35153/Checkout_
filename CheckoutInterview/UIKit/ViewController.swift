@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         configuration.cornerStyle = .fixed
         configuration.background.cornerRadius = 8
         configuration.baseForegroundColor = UIColor.black
-        configuration.title = "Submit"
+        configuration.title = Constants.ButtonTitles.submit
 
         let button = UIButton(
             configuration: configuration,
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(CheckoutItemTableViewCell.self,
-                           forCellReuseIdentifier: "CheckoutItemTableViewCell")
+                           forCellReuseIdentifier: CheckoutItemTableViewCell.identifier)
     }
 
     private func setupConstraints() {
@@ -79,6 +79,11 @@ class ViewController: UIViewController {
         let statusViewController = OrderStatusViewController(submissionResponse: response)
         navigationController?.pushViewController(statusViewController, animated: true)
     }
+    
+    private func setSubmitButtonLoading(_ isLoading: Bool) {
+        submitButton.isEnabled = !isLoading
+        submitButton.configuration?.title = isLoading ? Constants.ButtonTitles.submitting : Constants.ButtonTitles.submit
+    }
 }
 
 // MARK: - CheckoutViewModelDelegate
@@ -87,8 +92,18 @@ extension ViewController: CheckoutViewModelDelegate {
         tableView.reloadData()
     }
     
+    func didStartSubmittingOrder() {
+        setSubmitButtonLoading(true)
+    }
+    
     func didSubmitOrderSuccessfully(response: SubmissionResponse) {
+        setSubmitButtonLoading(false)
         showOrderStatus(response: response)
+    }
+    
+    func didFailToSubmitOrder(error: Error) {
+        setSubmitButtonLoading(false)
+        print("Submission failed: \(error.localizedDescription)")
     }
 }
 
@@ -99,7 +114,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutItemTableViewCell", for: indexPath) as? CheckoutItemTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CheckoutItemTableViewCell.identifier, for: indexPath) as? CheckoutItemTableViewCell else {
             return UITableViewCell()
         }
         

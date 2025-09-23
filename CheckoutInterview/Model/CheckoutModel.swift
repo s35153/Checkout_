@@ -6,12 +6,12 @@
 //
 
 struct CheckoutModel: Codable {
-    let id: String
+    let id: String?
     let items: [OrderItem]
 }
 
 struct OrderItem: Codable {
-    let name: String
+    let name: String?
     let displayPrice: String?
     
     enum CodingKeys: String, CodingKey {
@@ -21,19 +21,19 @@ struct OrderItem: Codable {
     
     // Computed property to handle null prices
     var formattedPrice: String {
-        return displayPrice ?? "Free"
+        return displayPrice ?? Constants.StatusMessages.free
     }
 }
 
 struct SubmissionResponse: Codable {
-    let status: String
+    let status: String?
     
     var statusMessage: String {
         switch status {
-        case "preparing_order":
-            return "Your order is being prepared"
+        case Constants.OrderStatus.preparingOrder:
+            return Constants.StatusMessages.preparingOrder
         default:
-            return "Order status: \(status)"
+            return String(format: Constants.StatusMessages.orderStatus, status ?? "")
         }
     }
 }

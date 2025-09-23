@@ -9,7 +9,9 @@ import UIKit
 
 protocol CheckoutViewModelDelegate: AnyObject {
     func didFetchOrderSuccessfully()
+    func didStartSubmittingOrder()
     func didSubmitOrderSuccessfully(response: SubmissionResponse)
+    func didFailToSubmitOrder(error: Error)
 }
 
 class CheckoutViewModel {
@@ -47,6 +49,9 @@ class CheckoutViewModel {
             return
         }
         
+        // Notify delegate that submission started
+        delegate?.didStartSubmittingOrder()
+        
         checkoutService.submitOrder(orderId: orderId) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
@@ -54,6 +59,7 @@ class CheckoutViewModel {
                     self?.delegate?.didSubmitOrderSuccessfully(response: submissionResponse)
                 case .failure(let error):
                     print("Failed to submit order: \(error.localizedDescription)")
+                    self?.delegate?.didFailToSubmitOrder(error: error)
                 }
             }
         }

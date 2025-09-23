@@ -22,7 +22,7 @@ class OrderStatusViewController: UIViewController {
         configuration.cornerStyle = .fixed
         configuration.background.cornerRadius = 8
         configuration.baseForegroundColor = UIColor.black
-        configuration.title = "Done"
+        configuration.title = Constants.ButtonTitles.done
         
         let button = UIButton(
             configuration: configuration,
